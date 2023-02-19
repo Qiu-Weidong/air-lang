@@ -1,0 +1,73 @@
+from "../BaseButton" import BaseButton as Button;
+
+
+interface Drawable {
+    protected virtual func draw(self);  
+}
+
+export class BeautifulButton extends Button implements Drawable {
+    // rgba
+    private color: (integer, integer, integer, integer);
+
+    private text: string;
+
+    public func get_text(self) -> string {
+        return self.text;
+    }
+
+    public func get_color(self) -> (integer, integer, integer, integer) {
+        return self.color;
+    }
+
+    public func set_text(self, text: string) {
+        self.text = text;
+    }
+
+    public func set_color(self, color: (integer, integer, integer, integer)) {
+        self.color = color;
+    }
+
+
+    // 实现接口中的方法
+    protected override func draw(self) {  }
+
+    enum Option {
+        Some(integer),
+        None
+    }
+
+    private children: list<Button>;
+
+    // 定义一个非成员函数
+    public func add(x: float, y: float) -> float {
+        return x + y;
+    }
+
+    // for循环
+    public func loop_test(self) {
+        for (child in self.children) {
+            child.draw();
+        }
+    }
+
+    // async 测试
+    public async func test_async(self) {
+
+    } 
+}
+
+func main() {
+    let msg: string = "hello";
+
+    let x: integer = match msg {
+        "hello" => 5,
+        "world" => 6,
+        * => 7,
+    };
+
+    let f = lambda |x: float, y: float| -> x + y;
+}
+
+
+
+
